@@ -3,9 +3,7 @@ echo "Dir: $PWD"
 
 export DEBIAN_FRONTEND=noninteractive
 
-sudo dpkg --configure -a
-
-sudo apt-get update -qq
+sudo apt-get update
   
 if ! type "msbuild" > /dev/null; then
   VERSION_NAME=$(lsb_release -cs)
