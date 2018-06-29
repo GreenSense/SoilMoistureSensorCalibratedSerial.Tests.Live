@@ -1,12 +1,14 @@
 echo "Testing project"
 echo "  Dir: $PWD"
 
-#export GARDEN_HOST=garden
-#export MOSQUITTO_HOST=garden
-#export MOSQUITTO_USERNAME=user
-#export MOSQUITTO_PASSWORD=pass
+DEVICE_NAMES_LIST=$MONITOR_DEVICE_NAMES
 
-DEVICE_NAMES_LIST=$(cat mqtt-device-names.security)
+if [ ! $DEVICE_NAMES_LIST ]; then
+  echo "Getting device names from file..."
+  DEVICE_NAMES_LIST=$(cat mqtt-device-names.security)
+fi
+
+echo "Device names list: \"$DEVICE_NAMES_LIST\""
 
 for i in $(echo $DEVICE_NAMES_LIST | sed "s/,/ /g")
 do
