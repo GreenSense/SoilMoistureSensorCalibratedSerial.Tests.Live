@@ -10,7 +10,11 @@ fi
 
 echo "Device names list: \"$DEVICE_NAMES_LIST\""
 
+EXIT_CODE=0
+
 for i in $(echo $DEVICE_NAMES_LIST | sed "s/,/ /g")
 do
-    sh test-device.sh $i || exit 1
+    sh test-device.sh $i || EXIT_CODE=1
 done
+
+exit $EXIT_CODE
