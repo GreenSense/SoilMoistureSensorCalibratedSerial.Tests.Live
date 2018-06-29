@@ -3,6 +3,8 @@ echo "Dir: $PWD"
 
 export DEBIAN_FRONTEND=noninteractive
 
+sudo dpkg --configure -a
+
 sudo apt-get update -qq
   
 if ! type "msbuild" > /dev/null; then
@@ -15,7 +17,6 @@ if ! type "msbuild" > /dev/null; then
 else
   echo "Mono/msbuild is already installed. Skipping install."
 fi
-
 
 if ! type "mosquitto_pub" > /dev/null; then
   sudo apt-get install -y --no-install-recommends mosquitto-clients
