@@ -3,4 +3,4 @@ echo "Dir: $PWD"
 
 DIR=$PWD
 
-msbuild src/GreenSense.Sanity.Tests.sln /p:Configuration=Release
+msbuild src/SoilMoistureSensorCalibratedSerial.Tests.Live.sln /p:Configuration=Release
