@@ -12,5 +12,5 @@ echo "Device names list: \"$DEVICE_NAMES_LIST\""
 
 for i in $(echo $DEVICE_NAMES_LIST | sed "s/,/ /g")
 do
-    sh test-device.sh $i
+    sh test-device.sh $i || exit 1
 done
