@@ -17,6 +17,11 @@ pipeline {
                 sh 'echo "Device Names: ${MONITOR_DEVICE_NAMES}"'
             }
         }
+        stage('Prepare') {
+            steps {
+                sh 'sh prepare.sh'
+            }
+        }
         stage('Init') {
             steps {
                 sh 'sh init.sh'
