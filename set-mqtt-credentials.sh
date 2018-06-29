@@ -25,29 +25,6 @@ if [ "$PASSWORD" ]; then
   echo $PASSWORD > "mqtt-password.security"
   echo $PORT > "mqtt-port.security"
 
-  CREDENTIALS_FILE="scripts/docker/mosquitto/data/mosquitto.userfile"
-
-  echo "$USERNAME:$PASSWORD" > $CREDENTIALS_FILE
-
-  echo "Setting credentials file:"
-  echo "  $CREDENTIALS_FILE"
-
-
-  echo ""
-  echo "Setting mqtt bridge config file:"
-  BRIDGE_SERVICE_CONFIG_FILE="scripts/apps/BridgeArduinoSerialToMqttSplitCsv/BridgeArduinoSerialToMqttSplitCsv.exe.config"
-  echo "  $BRIDGE_SERVICE_CONFIG_FILE"
-  sed -i "s/localhost/$HOST/g" $BRIDGE_SERVICE_CONFIG_FILE && \
-  sed -i "s/user/$USERNAME/g" $BRIDGE_SERVICE_CONFIG_FILE && \
-  sed -i "s/123456/$PASSWORD/g" $BRIDGE_SERVICE_CONFIG_FILE
-
-  BRIDGE_SERVICE_CONFIG_FILE2="scripts/apps/BridgeArduinoSerialToMqttSplitCsv/BridgeArduinoSerialToMqttSplitCsv/lib/net40/BridgeArduinoSerialToMqttSplitCsv.exe.config"
-  echo "  $BRIDGE_SERVICE_CONFIG_FILE2"
-  sed -i "s/localhost/$HOST/g" $BRIDGE_SERVICE_CONFIG_FILE2 && \
-  sed -i "s/user/$USERNAME/g" $BRIDGE_SERVICE_CONFIG_FILE2 && \
-  sed -i "s/123456/$PASSWORD/g" $BRIDGE_SERVICE_CONFIG_FILE2
-
-
   echo ""
   echo "Finished setting MQTT credentials"
 else
