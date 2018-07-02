@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using NUnit.Framework;
 using System.IO;
 using System.Net.NetworkInformation;
@@ -70,7 +70,7 @@ namespace SoilMoistureSensorCalibratedSerial.Tests.Live
 
 			SendCommand("V", interval);
 
-			Thread.Sleep(1000);
+			Thread.Sleep(3000);
 
 			WaitForData(3);
 
